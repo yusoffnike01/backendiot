@@ -1,0 +1,2 @@
+class Infocounter < ApplicationRecord
+end

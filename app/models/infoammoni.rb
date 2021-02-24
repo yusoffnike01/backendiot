@@ -1,0 +1,2 @@
+class Infoammoni < ApplicationRecord
+end

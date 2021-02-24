@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_Device: MyString
+  location: MyString
+
+two:
+  ID_Device: MyString
+  location: MyString
