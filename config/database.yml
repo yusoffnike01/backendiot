@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: backendiot_production
-  username: backendiot
-  password: <%= ENV['BACKENDIOT_DATABASE_PASSWORD'] %>
+  # username: backendiot
+  adapter: postgresql
+  # password: <%= ENV['BACKENDIOT_DATABASE_PASSWORD'] %>
