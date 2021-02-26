@@ -2,7 +2,7 @@ module Api
     module V1
         class DetailammoniController<ApplicationController
             def index
-                detail=Detailammoni.find_by_sql("select detailammonis.id, detailammonis.ammoni_id , detailammonis.updated_at, 
+                detail=Detailammoni.find_by_sql("select detailammonis.*,
                 ammonis.location, detailammonis.level from ((detailammonis inner join(select detailammonis.ammoni_id,max(detailammonis.updated_at)
                 as MaxDate from detailammonis group by detailammonis.ammoni_id)tm on detailammonis.ammoni_id =tm.ammoni_id and detailammonis.updated_at
                 =tm.MaxDate)inner join ammonis on detailammonis.ammoni_id =ammonis.id)group by date(detailammonis.updated_at),detailammonis.id,ammonis .location")
