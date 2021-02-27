@@ -3,7 +3,10 @@ module Api
         class DetailcounterController<ApplicationController
             # display data counter according id device by max date 
             def index
-                detail=Detailcounter.joins(:counter).select("detailcounters.counter_id,counters.*").where(updated_at: Detailcounter.select('Max(detailcounters.updated_at)')).group("counters.id,detailcounters.counter_id")
+                detail=Detailcounter.find_by_sql("select detailcounters.*,
+                counters.location, detailcounters.count from ((detailcounters inner join(select detailcounters.counter_id,max(detailcounters.updated_at)
+                as MaxDate from detailcounters group by detailcounters.counter_id)tm on detailcounters.counter_id =tm.counter_id and detailcounters.updated_at
+                =tm.MaxDate)inner join counters on detailcounters.counter_id =counters.id)group by date(detailcounters.updated_at),detailcounters.id,counters .location")
                 
                 render json:{status: 'SUCCESS', message: 'Loaded Detail Counter', data:detail},status: :ok
             end
