@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources:resultcountermonth, only:[:index]
       resources:displaygraph, only:[:index]
       resources:totaldevice, only:[:index]
+      resources:getallcount, only:[:index]
     end
   end   
 end
