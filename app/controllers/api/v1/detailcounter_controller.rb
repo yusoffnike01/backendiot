@@ -12,7 +12,7 @@ module Api
             end
             # display data counter by ID
             def show
-                detail=Detailcounter.find_by_sql("select detailcounters.count, Date(detailcounters.updated_at), counters.location from detailcounters inner join counters on detailcounters.counter_id=counters.id where  detailcounters.updated_at IN (SELECT max (detailcounters.updated_at) from detailcounters where detailcounters.counter_id='#{params[:id]}')")
+                detail=Detailcounter.find_by_sql("select detailcounters.count, Date(detailcounters.updated_at), detailcounters.counter_id ,counters.location from detailcounters inner join counters on detailcounters.counter_id=counters.id where  detailcounters.updated_at IN (SELECT max (detailcounters.updated_at) from detailcounters where detailcounters.counter_id='#{params[:id]}')")
         
                 render json:{status: 'SUCCESS', message: 'Details By ID', data:detail},status: :ok
             end
