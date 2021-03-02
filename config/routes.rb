@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources:infoammonia
       resources:sessions
       resources:display
+      
       resources:resultcountermonth, only:[:index]
       resources:displaygraph, only:[:index]
       resources:totaldevice, only:[:index]
