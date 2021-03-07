@@ -1,6 +1,6 @@
 class CreateCounters < ActiveRecord::Migration[6.1]
   def change
-    create_table :counters do |t|
+    create_table :counters, do |t|
       t.string :ID_Device
       t.string :location
 
